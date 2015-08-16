@@ -21,8 +21,9 @@ getVarFromFile('InputDetails.dat')
 
 ############    END:: Reading the input file where variables stored    ##########################
 
-
+'''
 ############ START:: Setting Bin, Min and Max       ###########################
+
 print 'int Bin[%s] = {'%(len(data.varList)/4),
 for a in range(0,len(data.varList)/4):
     print data.varList[a*4+1],
@@ -75,6 +76,11 @@ print "\tfor(int i=0; i<%i;i++){"%(len(data.list_data)*len(data.varList)/4)
 print '\t\tDataHist[i] = new TH1F(Form("DataHist%i",i),"",Bin[i],Min[i],Max[i]);'
 print '\t\tDataHist[i]->SetLineColor(3);\n\t}\n'
 #print '\t\tDataHist[i]->SetLineColor(2*(2*i+1));\n\t}\n'
+'''
+
+
+
+
 
 
 
@@ -84,8 +90,7 @@ for a in range(0,len(data.list_mc_sig)):
     print '\t\tClassReadTree mc_sig_%i(t%i_mc_sig);'%(a, a)
     print '\t\tfor(int iEv_%i_mc_sig=0;iEv_%i_mc_sig < t%i_mc_sig->GetEntries();iEv_%i_mc_sig++){'%(a, a, a, a)
     print '\t\t\tt%i_mc_sig->GetEntry(iEv_%i_mc_sig);'%(a, a)    
-    for b in range(0, len(data.varList)/4):
-        print '\t\t\tSigHist[%i]->Fill(mc_sig_0.%s);'%(a+b+a*((len(data.varList)/4)-1), data.varList[b*4])
+    print 'std::cout<<"got an event "<<std::endl;'
     print '\t\t}'
     print '\n'
 
@@ -95,8 +100,6 @@ for a in range(0,len(data.list_mc_bkg)):
     print '\t\tClassReadTree mc_bkg_%i(t%i_mc_bkg);'%(a, a)
     print '\t\tfor(int iEv_%i_mc_bkg=0;iEv_%i_mc_bkg < t%i_mc_bkg->GetEntries();iEv_%i_mc_bkg++){'%(a, a, a, a)
     print '\t\t\tt%i_mc_bkg->GetEntry(iEv_%i_mc_bkg);'%(a, a)   
-    for b in range(0, len(data.varList)/4):
-        print '\t\t\tBkgHist[%i]->Fill(mc_bkg_0.%s);'%(a+b+a*((len(data.varList)/4)-1), data.varList[b*4])
     print '\t\t}'
     print '\n'
 
@@ -106,11 +109,9 @@ for a in range(0,len(data.list_data)):
     print '\t\tClassReadTree mc_data_%i(t%i_data);'%(a, a)
     print '\t\tfor(int iEv_%i_data=0;iEv_%i_data < t%i_data->GetEntries();iEv_%i_data++){'%(a, a, a, a)
     print '\t\t\tt%i_data->GetEntry(iEv_%i_data);'%(a, a)  
-    for b in range(0, len(data.varList)/4):
-        print '\t\t\tDataHist[%i]->Fill(mc_data_0.%s);'%(a+b+a*((len(data.varList)/4)-1), data.varList[b*4])
     print '\t\t}'
     print '\n'
-
+'''
 print '\tTCanvas * c1 = new TCanvas("c1","",1);\n'
 print 'double yMax=0.;\ndouble HistMax;'
 for a in range(0,len(data.list_mc_sig)*len(data.varList)/4):
@@ -132,3 +133,10 @@ for a in range(0,len(data.list_mc_sig)*len(data.varList)/4):
     print '\tc1->SaveAs("%s.pdf");'%data.varList[a*4]
     print '\tc1->Clear();'
 print '\n\n}'
+
+
+'''
+
+print '\n}'
+
+
