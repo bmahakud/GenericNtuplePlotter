@@ -2,7 +2,7 @@ import sys
 sys.stdout = open('MasterReader.C','w')
 
 ############    include Header files    ##########################
-print '#include<iostream>\n#include <TROOT.h>\n#include <TChain.h>\n#include <TFile.h>\n#include "TLorentzVector.h"\n#include<vector>\n#include "TTree.h"\n#include "ClassReadTree.cc"\nusing namespace std;\n\n'
+print '#include<iostream>\n#include "computeBin.C"\n#include <TROOT.h>\n#include <TChain.h>\n#include <TFile.h>\n#include "TLorentzVector.h"\n#include<vector>\n#include "TTree.h"\n#include "ClassReadTree.cc"\nusing namespace std;\n\n'
 
 
 
@@ -36,8 +36,16 @@ for a in range(0,len(data.list_mc_sig)):
     print 'std::cout<<"got an event after base line "<<std::endl;'
     print 'int i_iEv_%i_mc_sig=mc_sig_%i.JetID; '%(a ,a)
     print 'if(i_iEv_%i_mc_sig==1){'%(a)
+    print 'if(mc_sig_%i.photonCands->size()==1){//photon loop'%(a)
+    print 'if(mc_sig_%i.photon_isEB->at(0)==1  ){//barrel photon'%(a)
 
 
+
+
+
+
+    print '\n}//barrel photon'
+    print '\n}//photon loop'
     print '\n}'
     print '\n}'
     print '\t\t}'
@@ -52,7 +60,16 @@ for a in range(0,len(data.list_mc_bkg)):
     print 'if(mc_bkg_%i.Baseline(mc_bkg_%i.HTclean, mc_bkg_%i.MHTclean , mc_bkg_%i.NJetsclean, mc_bkg_%i.DeltaPhi1 ,mc_bkg_%i.DeltaPhi2 ,mc_bkg_%i.DeltaPhi3)){'%(a, a, a, a, a, a, a)
     print 'int i_iEv_%i_mc_bkg=mc_sig_%i.JetID; '%(a ,a)
     print 'if(i_iEv_%i_mc_bkg==1){'%(a)
+    print 'if(mc_bkg_%i.photonCands->size()==1){//photon loop'%(a)
+    print 'if(mc_bkg_%i.photon_isEB->at(0)==1  ){//barrel photon'%(a)
 
+
+
+
+
+
+    print '\n}//barrel photon'
+    print '\n}//photon loop'
 
     print '\n}'
 

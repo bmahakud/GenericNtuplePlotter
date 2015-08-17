@@ -357,8 +357,8 @@ public :
 
    virtual void     Init(TTree *tree);
 
-   
-
+   bool Baseline(float HT, float MHT, int NJets,float dPhi1, float dPhi2, float dPhi3);   
+   bool PassSBIso(float chIso,float nIso,float phIso ,float phPt);
    
 
    
@@ -643,5 +643,45 @@ void ClassReadTree::Init(TTree *tree)
 
 ClassReadTree::ClassReadTree(TTree *tree)
 {
+
+        fChain=tree;
 	Init(tree);
 }
+
+bool ClassReadTree::Baseline(float HT, float MHT, int NJets,float dPhi1, float dPhi2, float dPhi3){
+if(HT > 500. && MHT > 200. && NJets >=4 && dPhi1 > 0.5 && dPhi2 > 0.5 && dPhi3 > 0.3){
+return true;
+
+}else{
+
+return false;
+
+
+
+}
+
+
+
+}
+
+bool PassSBIso(float chIso,float nIso,float phIso ,float phPt){
+
+
+double Pf_Ch_RhoCorrIso = chIso; 
+double Pf_Ne_RhoCorrIso = nIso;
+double Pf_Gam_RhoCorrIso = phIso;
+
+if( Pf_Ch_RhoCorrIso < 2.67 ) return false;
+if( Pf_Ne_RhoCorrIso > (7.23 + TMath::Exp(0.0028*phPt+0.5408)) ) return false;
+if( Pf_Gam_RhoCorrIso > (1.40 + 0.0014*phPt) ) return false;
+
+return true;
+
+
+}
+
+
+
+
+
+
