@@ -21,16 +21,16 @@ store_data = "" # "/home/ramkrishna/TEMP/AnalysisWWTrees/WWTree_el/"
 ####    Name of samples #####
 
 
-list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Spring15.GJets_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root"]
+#list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Spring15.GJets_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root"]
 
-list_mc_bkg = ["Spring15.QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_170to300_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root"]
+#list_mc_bkg = ["Spring15.QCD_Pt_1000to1400_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_1800to2400_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_470to600_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_120to170_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_2400to3200_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_600to800_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_1400to1800_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_300to470_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_800to1000_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_170to300_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_3200toInf_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root","Spring15.QCD_Pt_80to120_TuneCUETP8M1_13TeV_pythia8_*_RA2AnalysisTree.root"]
 
 
 #list_mc_bkg = []
 #list_data = ["PHYS14.GJets_HT-400to600_Tune4C_13TeV-madgraph-tauola_*_RA2AnalysisTree.root"]
 
-#list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
-#list_mc_bkg = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
+list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
+list_mc_bkg = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
 list_data = [] 
 
 

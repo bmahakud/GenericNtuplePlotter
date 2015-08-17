@@ -664,20 +664,20 @@ return false;
 
 }
 
-bool PassSBIso(float chIso,float nIso,float phIso ,float phPt){
+bool ClassReadTree::PassSBIso(float chIso,float nIso,float phIso ,float phPt){
 
 
-double Pf_Ch_RhoCorrIso = chIso; 
-double Pf_Ne_RhoCorrIso = nIso;
-double Pf_Gam_RhoCorrIso = phIso;
+float Pf_Ch_RhoCorrIso = chIso; 
+float Pf_Ne_RhoCorrIso = nIso;
+float Pf_Gam_RhoCorrIso = phIso;
 
-if( Pf_Ch_RhoCorrIso < 2.67 ) return false;
-if( Pf_Ne_RhoCorrIso > (7.23 + TMath::Exp(0.0028*phPt+0.5408)) ) return false;
-if( Pf_Gam_RhoCorrIso > (1.40 + 0.0014*phPt) ) return false;
+if( Pf_Ch_RhoCorrIso < 2.67 && (Pf_Ne_RhoCorrIso > (7.23 + TMath::Exp(0.0028*phPt+0.5408))) && (Pf_Gam_RhoCorrIso > (1.40 + 0.0014*phPt))){
+return false;
 
+}else{ 
 return true;
 
-
+}
 }
 
 

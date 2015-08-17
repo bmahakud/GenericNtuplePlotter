@@ -20,9 +20,33 @@ def getVarFromFile(filename):
 getVarFromFile('InputDetails.dat')
 
 
+print 'TFile *fsie=new TFile("SigmaIetaIeta.root","RECREATE");'
+   
+numSigf=len(data.list_mc_sig)
+numBkgf=len(data.list_mc_bkg)
+
+print 'TH1F  *h_Sig_bins[72][%i];'%(numSigf)
+print 'TH1F  *h_Bkg_bins[72][%i];'%(numBkgf)
+
+print 'char h_sig[100];'
+print 'char h_bkg[100];'
 
 
+print 'for(int i=0;i<72;i++){//loop bins'
+print 'for(int j=0;j<%i;j++){//loop files signal'%(numSigf)
 
+print 'sprintf(h_sig,"sigmaIeta_sig_%i_%i",i,j);'
+print 'h_Sig_bins[i][j]=new TH1F(h_sig,h_sig,100,0,0.04);'
+
+print '\n}//loop files signal'
+
+print 'for(int j=0;j<%i;j++){//loop files bkg'%(numBkgf)
+print 'sprintf(h_bkg,"sigmaIeta_bkg_%i_%i",i,j);'
+print 'h_Bkg_bins[i][j]=new TH1F(h_bkg,h_bkg,100,0,0.04);'
+
+
+print '\n}//loop files bkg'
+print '\n}//loop bins'
 
 
 
@@ -38,12 +62,18 @@ for a in range(0,len(data.list_mc_sig)):
     print 'if(i_iEv_%i_mc_sig==1){'%(a)
     print 'if(mc_sig_%i.photonCands->size()==1){//photon loop'%(a)
     print 'if(mc_sig_%i.photon_isEB->at(0)==1  ){//barrel photon'%(a)
+    print 'if(mc_sig_%i.PassSBIso(mc_sig_%i.photon_pfChargedIsoRhoCorr->at(0),mc_sig_%i.photon_pfNeutralIsoRhoCorr->at(0),mc_sig_%i.photon_pfGammaIsoRhoCorr->at(0),mc_sig_%i.photonCands->at(0).Pt())){//side band photon'%(a, a, a, a, a)
+   
+    print 'if(mc_sig_%i.photon_nonPrompt->at(0)==0){//prompt photons'%(a)
+   
+    print 'cout<<"got prompt photons from signal region"<<endl;'
 
+    print 'unsigned int bin_sig=computeBin(mc_sig_%i.MHTclean,mc_sig_%i.HTclean,mc_sig_%i.NJetsclean,mc_sig_%i.BTagsclean,k13TeV);'%(a, a, a, a)
 
+    print 'h_Sig_bins[bin_sig][%i]->Fill(mc_sig_%i.photon_sigmaIetaIeta->at(0));'%(a, a) 
 
-
-
-
+    print '\n}//prompt photons'
+    print '\n}//side band photon'
     print '\n}//barrel photon'
     print '\n}//photon loop'
     print '\n}'
@@ -62,12 +92,17 @@ for a in range(0,len(data.list_mc_bkg)):
     print 'if(i_iEv_%i_mc_bkg==1){'%(a)
     print 'if(mc_bkg_%i.photonCands->size()==1){//photon loop'%(a)
     print 'if(mc_bkg_%i.photon_isEB->at(0)==1  ){//barrel photon'%(a)
+    print 'if(mc_bkg_%i.PassSBIso(mc_bkg_%i.photon_pfChargedIsoRhoCorr->at(0),mc_bkg_%i.photon_pfNeutralIsoRhoCorr->at(0),mc_bkg_%i.photon_pfGammaIsoRhoCorr->at(0),mc_bkg_%i.photonCands->at(0).Pt())){//side band photon'%(a, a, a, a, a)
+   
+    print 'if(mc_bkg_%i.photon_nonPrompt->at(0)==1){//non prompt photons'%(a)
+   
+    print 'cout<<"got prompt photons from signal region"<<endl;'
 
+    print 'int bin_bkg=computeBin(mc_bkg_%i.MHTclean,mc_bkg_%i.HTclean,mc_bkg_%i.NJetsclean,mc_bkg_%i.BTagsclean,k13TeV);'%(a, a, a, a)
+    print 'h_Bkg_bins[bin_bkg][%i]->Fill(mc_bkg_%i.photon_sigmaIetaIeta->at(0));'%(a, a)
 
-
-
-
-
+    print '\n}//non prompt photons'
+    print '\n}//side band photon'
     print '\n}//barrel photon'
     print '\n}//photon loop'
 
@@ -91,7 +126,7 @@ for a in range(0,len(data.list_data)):
 
 
 
-
+print 'fsie->Write();'
 print '\n}'
 
 
