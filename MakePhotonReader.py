@@ -314,12 +314,37 @@ for a in range(0,len(data.list_mc_bkg)):
 
 
 
+print 'Weight_mc_sig[%i]={0};'%numSigf
+print 'Weight_mc_bkg[%i]={0};'%numBkgf
+
+nfs=0;
+for a in data.list_mc_sig_weights:
+    print 'Weight_mc_sig[%i]=%s;'%(nfs, a)
+    nfs=nfs+1
+
+nfb=0;
+for a in data.list_mc_bkg_weights:
+    print 'Weight_mc_bkg[%i]=%s;'%(nfb, a)
+    nfb=nfb+1
+
+
+
+print 'for(int j=0;j<60;j++){//histos'
+print 'for(int i1=0;i1<%i;i1++){//signals'%(numSigf)
+print 'h_Sig_bins[i1][j]->Scale(Weight_mc_sig[i1]);'
+print '}//signals'
+
+print 'for(int i2=0;i2<%i;i2++){//bkg'%(numBkgf)
+print 'h_Bkg_bins[i2][j]->Scale(Weight_mc_bkg[i2]);'
+print '}//bkg' 
+
+print '}//histos'
 
 
 
 
 
-
+print 'fsie->Write();'
 
 
 
