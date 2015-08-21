@@ -32,14 +32,7 @@ for a in range(0,len(data.list_mc_sig)):
     print '\t\tClassReadTree mc_sig_%i(t%i_mc_sig);'%(a, a)
     print '\t\tfor(int iEv_%i_mc_sig=0;iEv_%i_mc_sig < t%i_mc_sig->GetEntries();iEv_%i_mc_sig++){'%(a, a, a, a)
     print '\t\t\tt%i_mc_sig->GetEntry(iEv_%i_mc_sig);'%(a, a)   
-    print 'if(mc_sig_%i.Baseline( mc_sig_%i.HTclean, mc_sig_%i.MHTclean , mc_sig_%i.NJetsclean, mc_sig_%i.DeltaPhi1 ,mc_sig_%i.DeltaPhi2 ,mc_sig_%i.DeltaPhi3)){'%(a, a, a, a, a, a, a)
-    print 'std::cout<<"got an event after base line "<<std::endl;'
-    print 'int i_iEv_%i_mc_sig=mc_sig_%i.JetID; '%(a ,a)
-    print 'if(i_iEv_%i_mc_sig==1){'%(a)
-
-
-    print '\n}'
-    print '\n}'
+   
     print '\t\t}'
     print '\n'
 
@@ -49,15 +42,7 @@ for a in range(0,len(data.list_mc_bkg)):
     print '\t\tClassReadTree mc_bkg_%i(t%i_mc_bkg);'%(a, a)
     print '\t\tfor(int iEv_%i_mc_bkg=0;iEv_%i_mc_bkg < t%i_mc_bkg->GetEntries();iEv_%i_mc_bkg++){'%(a, a, a, a)
     print '\t\t\tt%i_mc_bkg->GetEntry(iEv_%i_mc_bkg);'%(a, a)   
-    print 'if(mc_bkg_%i.Baseline(mc_bkg_%i.HTclean, mc_bkg_%i.MHTclean , mc_bkg_%i.NJetsclean, mc_bkg_%i.DeltaPhi1 ,mc_bkg_%i.DeltaPhi2 ,mc_bkg_%i.DeltaPhi3)){'%(a, a, a, a, a, a, a)
-    print 'int i_iEv_%i_mc_bkg=mc_sig_%i.JetID; '%(a ,a)
-    print 'if(i_iEv_%i_mc_bkg==1){'%(a)
-
-
-    print '\n}'
-
-
-    print '\n}'
+    
     print '\t\t}'
     print '\n'
 
