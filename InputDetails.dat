@@ -4,14 +4,8 @@ treeName="TreeMaker2/PreSelection"
 
 
 
-####    path of samples #####
-path1="/eos/uscms/store/user/bmahakud/LeptoQuarkSpring15/"
-path2="/eos/uscms/store/user/awhitbe1/PHYS14productionV15/" 
-path3="/eos/uscms/store/user/lpcsusyhad/SusyRA2Analysis2015/DPSproductionPatch1/"
 
-xrootrdpath= "root://cmsxrootd.fnal.gov///store/user/lpcsusyhad/SusyRA2Analysis2015/DPSproductionPatch1/"
-
-store_mc_sig = "/home/bibhu/Desktop/PhD/DevelopingMakeClassCode/GenericNtuplePlotter/Ntuples/"                            
+store_mc_sig = "/home/bibhu/Desktop/PlotterPackage/GenericNtuplePlotter"                            
 store_mc_bkg = ""                            
 store_data = "" 
 
@@ -19,26 +13,16 @@ store_data = ""
 ####    Name of samples #####
 
 
-list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root","Spring15.GJets_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
+list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
 
-list_mc_sig_weights = [0.132,0.0379] #G400,G600
+
 
 
 list_mc_bkg = []
 
-list_mc_bkg_weights = [] # [830.8,140.5,34.9,2.70,0.335,0.100,0.0174,0.00635,0.00431,0.000594,3.51e-5,8.84e-7] #
 
-#list_data = ["PHYS14.GJets_HT-400to600_Tune4C_13TeV-madgraph-tauola_*_RA2AnalysisTree.root"]
 
-#list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
-#list_mc_bkg = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
 list_data = [] 
 
 
-####	Name of Branches     ####
-#
-#   Pattern of this arrary is like this:
-#   first put variable and then its bin, min-x and max-x
-#   Then next variable its bin, min-x and max-x, and so on...
-#
-varList =[]  
+
