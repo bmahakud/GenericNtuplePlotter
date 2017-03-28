@@ -1,28 +1,30 @@
 ####    Name of tree    #####
-treeName="TreeMaker2/PreSelection"
-
-
-
-
-
-store_mc_sig = "/home/bibhu/Desktop/PlotterPackage/GenericNtuplePlotter"                            
-store_mc_bkg = ""                            
-store_data = "" 
-
-
-####    Name of samples #####
-
-
-list_mc_sig = ["Spring15.GJets_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_40_RA2AnalysisTree.root"]
-
-
-
-
-list_mc_bkg = []
-
-
-
-list_data = [] 
-
-
-
+treeName_sig="TreeMaker2/PreSelection"
+treeName_bkg="tree"
+treeName_data="tree"
+#
+fileLocation_sig="/eos/uscms/store/user/fojensen/T5qqqqZHProduction/"
+fileLocation_bkg="/eos/uscms/store/user/lpcsusyhad/SusyRA2Analysis2015/Skims/Run2ProductionV12/tree_signal/"
+fileLocation_data="/eos/uscms/store/user/lpcsusyhad/SusyRA2Analysis2015/Skims/Run2ProductionV12/tree_signal/"
+#
+####incase you are putting xrootrd path below put the filelocation above without xrootdpath
+store_mc_sig = "root://cmseos.fnal.gov//store/user/fojensen/T5qqqqZHProduction/"
+store_mc_bkg = "root://cmseos.fnal.gov//store/user/lpcsusyhad/SusyRA2Analysis2015/Skims/Run2ProductionV12/tree_signal/"
+store_data = "root://cmseos.fnal.gov//store/user/lpcsusyhad/SusyRA2Analysis2015/Skims/Run2ProductionV12/tree_signal/"
+#
+#
+#####    Name of samples #####
+#
+#
+list_mc_sig = ["Summer16.SMS-T5qqqqZH-mGluino750_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Summer16.SMS-T5qqqqZH-mGluino2100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Summer16.SMS-T5qqqqZH-mGluino1700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root"]
+list_mc_sigNames =["T5qqqqZH_mG750","T5qqqqZH_mG2100","T5qqqqZH_mG1700"]
+#
+#
+#
+list_mc_bkg = ["tree_QCD_HT-*.root","tree_WJetsToLNu_HT-*.root","tree_TTJets.root","tree_ZJetsToNuNu_HT*.root"]
+list_mc_bkgNames = ["QCD","WJets","TTJets","ZJets"]
+#
+#
+#
+list_data = ["tree_HTMHT_re*.root","tree_JetHT_re*.root"]
+list_dataNames = ["HTMHT","jetHT"]
