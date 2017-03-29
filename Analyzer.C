@@ -8,7 +8,8 @@
 #include "ClassReadSig.cc" 
  #include "ClassReadBkg.cc" 
  #include "ClassReadData.cc" 
-#include "Loader.C" 
+#include "Loader.C"
+ #include "HistCreater.C" 
 using namespace std;
 
 
@@ -16,6 +17,11 @@ void Analyzer(){
  
 Loader L;
 
+
+HistCreater hs;
+
+cout<<"Entries: "<<hs.h_HT_T5qqqqZH_mG750->GetEntries()<<endl;
+//All the histograms are already created , you can access them with hs.h_variableName_processName as shown above
 
 
 TChain *tree_T5qqqqZH_mG750=L.Load("T5qqqqZH_mG750");

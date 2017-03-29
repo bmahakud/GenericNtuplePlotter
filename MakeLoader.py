@@ -108,12 +108,66 @@ os.system(Del)
 
 sys.stdout.close()
 
+sys.stdout = open('HistCreater.C','w')
+
+print 'class HistCreater{\n'
+print 'public:'
+
+for ivar in range(0, len(data.list_oneVariables)):
+  listN='list_%s_range'%(data.list_oneVariables[ivar])
+  varRange = getattr(data, listN)
+  Nbins=len(varRange)-1
+  print 'int nBins_%s = %i;'%(data.list_oneVariables[ivar],Nbins)
+  print 'double %s_range[%i] = {'%(data.list_oneVariables[ivar],len(varRange)),
+  for ir in range(0,len(varRange)):
+    if ir !=0:
+       print ',',
+    print '%d'%(varRange[ir]),
+  print '};' 
+  for isig in range(0,len(data.list_mc_sigNames)):
+    print 'TH1F *h_%s_%s =new TH1F("h_%s_%s","h_%s_%s",nBins_%s,%s_range);'%(data.list_oneVariables[ivar],data.list_mc_sigNames[isig],data.list_oneVariables[ivar],data.list_mc_sigNames[isig],data.list_oneVariables[ivar],data.list_mc_sigNames[isig],data.list_oneVariables[ivar],data.list_oneVariables[ivar])
+
+for ivar in range(0, len(data.list_oneVariables)):
+  listN='list_%s_range'%(data.list_oneVariables[ivar])
+  varRange = getattr(data, listN)
+  Nbins=len(varRange)-1
+  #print 'int nBins_%s = %i;'%(data.list_oneVariables[ivar],Nbins)
+  #print 'double %s_range = {'%(data.list_oneVariables[ivar])
+  #for ir in range(0,len(varRange)):
+  #  if ir !=0:
+  #     print ',',
+  #  print '%d'%(varRange[ir]),
+  #print '}'
+  for ibkg in range(0,len(data.list_mc_bkgNames)):
+    print 'TH1F *h_%s_%s =new TH1F("h_%s_%s","h_%s_%s",nBins_%s,%s_range);'%(data.list_oneVariables[ivar],data.list_mc_bkgNames[ibkg],data.list_oneVariables[ivar],data.list_mc_bkgNames[ibkg],data.list_oneVariables[ivar],data.list_mc_bkgNames[ibkg],data.list_oneVariables[ivar],data.list_oneVariables[ivar])
+
+ 
+for ivar in range(0, len(data.list_oneVariables)):
+  listN='list_%s_range'%(data.list_oneVariables[ivar])
+  varRange = getattr(data, listN)
+  Nbins=len(varRange)-1
+  #print 'int nBins_%s = %i;'%(data.list_oneVariables[ivar],Nbins)
+  #print 'double %s_range = {'%(data.list_oneVariables[ivar])
+  #for ir in range(0,len(varRange)):
+  #  if ir !=0:
+  #     print ',',
+  #  print '%d'%(varRange[ir]),
+  #print '}'
+  for idata in range(0,len(data.list_dataNames)):
+    print 'TH1F *h_%s_%s =new TH1F("h_%s_%s","h_%s_%s",nBins_%s,%s_range);'%(data.list_oneVariables[ivar],data.list_dataNames[idata],data.list_oneVariables[ivar],data.list_dataNames[idata],data.list_oneVariables[ivar],data.list_dataNames[idata],data.list_oneVariables[ivar],data.list_oneVariables[ivar])
+
+
+
+
+
+print '};\n'
+sys.stdout.close()
 
 
 sys.stdout = open('Analyzer.C','w')
 
 ############    include Header files    ##########################
-print '#include<iostream>\n#include <TROOT.h>\n#include <TChain.h>\n#include <TFile.h>\n#include "TLorentzVector.h"\n#include<vector>\n#include "TTree.h"\n#include "ClassReadSig.cc" \n #include "ClassReadBkg.cc" \n #include "ClassReadData.cc" \n#include "Loader.C" \nusing namespace std;\n\n'
+print '#include<iostream>\n#include <TROOT.h>\n#include <TChain.h>\n#include <TFile.h>\n#include "TLorentzVector.h"\n#include<vector>\n#include "TTree.h"\n#include "ClassReadSig.cc" \n #include "ClassReadBkg.cc" \n #include "ClassReadData.cc" \n#include "Loader.C"\n #include "HistCreater.C" \nusing namespace std;\n\n'
 
 
 
@@ -121,6 +175,8 @@ print 'void Analyzer(){\n '
 
 
 print 'Loader L;'
+print '\n\n'
+print 'HistCreater hs;'
 print '\n\n'
 for isg in range(0,len(data.list_mc_sigNames)):
    print 'TChain *tree_%s=L.Load("%s");'%(data.list_mc_sigNames[isg],data.list_mc_sigNames[isg])
@@ -146,4 +202,13 @@ for ida in range(0,len(data.list_dataNames)):
 
 
 print '\n}'
+
+
+sys.stdout.close()
+
+
+
+
+
+
 

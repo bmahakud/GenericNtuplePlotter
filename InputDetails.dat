@@ -28,3 +28,22 @@ list_mc_bkgNames = ["QCD","WJets","TTJets","ZJets"]
 #
 list_data = ["tree_HTMHT_re*.root","tree_JetHT_re*.root"]
 list_dataNames = ["HTMHT","jetHT"]
+
+#one value per event type variables, names should be same as exactly in the tree , code wll create histograms for these
+list_oneVariables=["HT","MHT","NJets","BTags","DeltaPhi1"]
+
+list_HT_range=[0,200,400,500,1000,2000]
+list_MHT_range=[0,200,400,500,1000,2000]
+list_NJets_range=[0,1,2,3,4,5,6,7,8,9]
+list_BTags_range=[0,1,2,3,4,5]
+list_DeltaPhi1_range=[-3,-2,0,2,3]
+
+
+
+
+
+
+
+
+
+
