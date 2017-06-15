@@ -9,7 +9,7 @@ Step1. Edit the InputDetails.dat file according to your need
 
 Step2. Execute the following command to create Analyzer.C that you will use for various purposes
 ```
-python MakeLoader.py
+./Setup
 ```
 
 Step3.
