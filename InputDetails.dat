@@ -18,25 +18,61 @@ store_data = "root://cmseos.fnal.gov//store/user/lpcsusyhad/SusyRA2Analysis2015/
 #
 list_mc_sig = ["Summer16.SMS-T5qqqqZH-mGluino750_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Summer16.SMS-T5qqqqZH-mGluino2100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root","Summer16.SMS-T5qqqqZH-mGluino1700_TuneCUETP8M1_13TeV-madgraphMLM-pythia8_*_RA2AnalysisTree.root"]
 list_mc_sigNames =["T5qqqqZH_mG750","T5qqqqZH_mG2100","T5qqqqZH_mG1700"]
+sig_cuts=[]
+list_mc_sigNames_cuts ={"T5qqqqZH_mG750":sig_cuts,"T5qqqqZH_mG2100":[],"T5qqqqZH_mG1700":sig_cuts,}
+
 #
 #
 #
 list_mc_bkg = ["tree_QCD_HT-*.root","tree_WJetsToLNu_HT-*.root","tree_TTJets.root","tree_ZJetsToNuNu_HT*.root"]
 list_mc_bkgNames = ["QCD","WJets","TTJets","ZJets"]
+bkg_cuts=[]
+list_mc_bkgNames_cuts ={"QCD":bkg_cuts,"WJets":[],"TTJets":bkg_cuts,"ZJets":[]}
+
 #
 #
 #
 list_data = ["tree_HTMHT_re*.root","tree_JetHT_re*.root"]
 list_dataNames = ["HTMHT","jetHT"]
+data_cuts=[]
+list_dataNames_cuts ={"HTMHT":data_cuts,"jetHT":[]}
 
+
+
+#double and integer values
 #one value per event type variables, names should be same as exactly in the tree , code wll create histograms for these
-list_oneVariables=["HT","MHT","NJets","BTags","DeltaPhi1"]
+list_oneVariables=["HT","MHT","NJets","BTags","DeltaPhi1","LeadJetPt"]
+list_VarsFill=["HT","MHT","NJets","BTags","DeltaPhi1","Jets->at(0).Pt()"]
+list_Baseline_cuts=["HT>500 && ","MHT>200 && ","NJets>=4 && ","Jets->size()>0 && ","Jets->at(0).Pt() > 200."]
+list_Categories =["OneTag","TwoTag"];
+
+#list_cutCombinationsHist =["","Barrel","Endcap"];
+
+#Vars_With_diffCuts ={"HT":[["",""],[]],"MHT":[[],[]],"NJets":[[],[]],"BTags":[[],[]],"DeltaPhi1":[[],[]],"LeadJetPt":[["Barrel","Endcap"],["Jets->at(0).Eta()<1.44","Jets->at(0).Eta()>1.44"]]}
+
+
 
 list_HT_range=[0,200,400,500,1000,2000]
+#list_HT_type=["Endcap","Barrel"]
+
 list_MHT_range=[0,200,400,500,1000,2000]
+#list_MHT_type=[""]
+
 list_NJets_range=[0,1,2,3,4,5,6,7,8,9]
+#list_NJets_type=[""]
+
 list_BTags_range=[0,1,2,3,4,5]
+#list_BTags_type=[""]
+
 list_DeltaPhi1_range=[-3,-2,0,2,3]
+#list_DeltaPhi1_type=[""]
+
+list_LeadJetPt_range=[0,50,100,150,200,300,500,2000]
+
+
+
+
+
 
 
 
