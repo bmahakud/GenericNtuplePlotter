@@ -1,15 +1,17 @@
 
-#Generic Plotter from NTuples
+# Generic Plotter from NTuples
+
 GenericNtuplePlotter are a set of codes that can be used to plot various things from Ntuple. The code assumes the root file have simple objects int, double, float,bool, TLorentzVector, vector<double>, vector<int>, vector<TLorentzVector> etc. Only you have to edit is the InputDetails.dat file to specify the root file locations, variables you want to plot and several other details. The code will automatically create the histograms and codes to fill them. It will also create member functions to create stacked plots.  
 
 The code is tested in CMSLPC machine. But supposed work in other machines as well. Minor errors related to version compatibility may arise in other machines
 
-#Step0. Execute the following command to copy the code to your area
+## Step0. Execute the following command to copy the code to your area
+
 ```
 git clone https://github.com/bmahakud/GenericNtuplePlotter/
 ```
 
-##Step1. Edit the InputDetails.dat file according to your need
+## Step1. Edit the InputDetails.dat file according to your need
 
 Specify the names of trees (folders if any) for signal, background and data files
 
@@ -183,12 +185,12 @@ list_subLeaddoubleBDiscriminator_range=[0,0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.0
 
 
 
-##Step2. Execute the following command to create Analyzer.C that you will use for various purposes
+## Step2. Execute the following command to create Analyzer.C that you will use for various purposes
 ```
 ./Setup
 ```
 
-##Step3.
+## Step3.
 ```
 root -l Analyzer.C
 ```
