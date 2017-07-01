@@ -28,6 +28,11 @@ if len(data.list_Categories)>0:
     for icate in data.list_Categories:
         print 'bool %s(TChain *tr,classInst& read,string ProcessName,int iEvent);\n'%(icate)
 
+for iname in data.list_VarsFill:
+    if "UserDef_" in iname:
+        print 'double %s(TChain *tr,classInst& read,string ProcessName,int iEvent);'%(iname) 
+
+
 
 
 
@@ -70,8 +75,10 @@ print '            EventWeight=read.Weight;'
 for icutvar in range(0, len(data.list_Categories)):
    print 'if(%s(tr,read,ProcessName,iEv)){'%(data.list_Categories[icutvar])
    for ivar in range(0, len(data.list_oneVariables)):
-       
-       print '         hs.h_[%i][processInt][%i]->Fill(read.%s,EventWeight); '%(ivar,icutvar,data.list_VarsFill[ivar]) 
+       if "UserDef_" not in data.list_VarsFill[ivar]: 
+           print '         hs.h_[%i][processInt][%i]->Fill(read.%s,EventWeight); '%(ivar,icutvar,data.list_VarsFill[ivar]) 
+       elif "UserDef_" in data.list_VarsFill[ivar]:
+           print '         hs.h_[%i][processInt][%i]->Fill(%s(tr,read,ProcessName,iEv),EventWeight); '%(ivar,icutvar,data.list_VarsFill[ivar])
    print '};'
 
 
@@ -162,13 +169,25 @@ print '}\n'
 
 
 if len(data.list_Categories)>0:
+    num=0
     for icate in data.list_Categories:
        print 'template <class classInst,class HistogramCreater> bool Looper_sig<classInst,HistogramCreater>::%s(TChain *tr,classInst& read,string ProcessName,int iEvent){\n'%(icate)
-       print 'return true;'
+       if data.Usedefcategories=="No":
+           print 'return true;'
+       elif data.Usedefcategories=="Yes":
+           print 'if(%s){return true;}'%(data.list_defCategories[num]),
+           print 'else{return false;}'
+           num=num+1
+       else:
+          print "Please tell me 'Yes' or 'No'" 
        print '}\n'
 
 
-
+for iname in data.list_VarsFill:
+    if "UserDef_" in iname:
+        print 'template <class classInst,class HistogramCreater> double Looper_sig<classInst,HistogramCreater>::%s(TChain *tr,classInst& read,string ProcessName,int iEvent){\n'%(iname),
+        print 'return 1.0;'
+        print '}\n'
 
 
 

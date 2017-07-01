@@ -573,6 +573,16 @@ public :
 
    vector<bool>    *MuonsNoIso_tightID;
 
+   vector<TLorentzVector> *MyGenParticle;
+
+   vector<int>     *MyGenParticle_ParentId;
+
+   vector<int>     *MyGenParticle_ParentIdx;
+
+   vector<int>     *MyGenParticle_PdgId;
+
+   vector<int>     *MyGenParticle_Status;
+
    Int_t           nAllVertices;
 
    Int_t           NJets;
@@ -1271,6 +1281,16 @@ public :
 
    TBranch        *b_MuonsNoIso_tightID;   //!
 
+   TBranch        *b_MyGenParticle;   //!
+
+   TBranch        *b_MyGenParticle_ParentId;   //!
+
+   TBranch        *b_MyGenParticle_ParentIdx;   //!
+
+   TBranch        *b_MyGenParticle_PdgId;   //!
+
+   TBranch        *b_MyGenParticle_Status;   //!
+
    TBranch        *b_nAllVertices;   //!
 
    TBranch        *b_NJets;   //!
@@ -1808,6 +1828,16 @@ void ClassReadSig::Init(TTree *tree)
    MuonsNoIso_MTW = 0;
 
    MuonsNoIso_tightID = 0;
+
+   MyGenParticle = 0;
+
+   MyGenParticle_ParentId = 0;
+
+   MyGenParticle_ParentIdx = 0;
+
+   MyGenParticle_PdgId = 0;
+
+   MyGenParticle_Status = 0;
 
    PDFids = 0;
 
@@ -2462,6 +2492,16 @@ void ClassReadSig::Init(TTree *tree)
    fChain->SetBranchAddress("MuonsNoIso_MTW", &MuonsNoIso_MTW, &b_MuonsNoIso_MTW);
 
    fChain->SetBranchAddress("MuonsNoIso_tightID", &MuonsNoIso_tightID, &b_MuonsNoIso_tightID);
+
+   fChain->SetBranchAddress("MyGenParticle", &MyGenParticle, &b_MyGenParticle);
+
+   fChain->SetBranchAddress("MyGenParticle_ParentId", &MyGenParticle_ParentId, &b_MyGenParticle_ParentId);
+
+   fChain->SetBranchAddress("MyGenParticle_ParentIdx", &MyGenParticle_ParentIdx, &b_MyGenParticle_ParentIdx);
+
+   fChain->SetBranchAddress("MyGenParticle_PdgId", &MyGenParticle_PdgId, &b_MyGenParticle_PdgId);
+
+   fChain->SetBranchAddress("MyGenParticle_Status", &MyGenParticle_Status, &b_MyGenParticle_Status);
 
    fChain->SetBranchAddress("nAllVertices", &nAllVertices, &b_nAllVertices);
 
