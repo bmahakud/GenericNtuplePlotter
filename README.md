@@ -216,6 +216,13 @@ root -l Analyzer.C
 This will produce a file named Histograms.root which will contain all of your filled histograms and stacked plots. You can speficy the stacked plots inside Analyzer.C
 
 
+look at a sample output file here 
+
+```
+http://bmahakud.web.cern.ch/bmahakud/GenericPlotterOutPut/
+```
+
+
 
 
 
