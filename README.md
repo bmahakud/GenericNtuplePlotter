@@ -189,12 +189,33 @@ list_subLeaddoubleBDiscriminator_range=[0,0.01,0.02,0.03,0.04,0.05,0.06,0.07,0.0
 ```
 ./Setup
 ```
+Many files will be created. These are 
+ClassReadSig.cc
+ClassReadBkg.cc
+ClassReadData.cc
+Loader.C
+HistCreater.C
+Looper_sig.C
+Looper_bkg.C
+Looper_data.C
+stackPlotter.C
+Analyzer.C
 
-## Step3.
+
+
+## Step3. Now you edit Looper_sig.C , Looper_bkg.C and Looper_data.C according to your need. 
+
+
+
+
+## Step4.
 ```
 root -l Analyzer.C
 ```
 
-You can define various histograms inside Analyzer.C and do your analysis
+This will produce a file named Histograms.root which will contain all of your filled histograms and stacked plots. You can speficy the stacked plots inside Analyzer.C
+
+
+
 
 
